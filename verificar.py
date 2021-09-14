@@ -25,7 +25,7 @@
 #
 #Autor: Camilo Martinez (gemartin@uniandes.edu.co)
 
-
+from __future__ import print_function
 import sys, os, getopt
 import csv
 import datetime
@@ -154,10 +154,6 @@ with open(input_path, 'r') as csvfile, open(missing_report_table, 'w') as missin
                 #se escribe la nueva fila en la tabla de salida
                 found_reportwriter.writerow(new_row)
                 count = count + 1
-
-                #dirname = os.path.basename(path)
-                #print("basename: " + os.path.basename(path))
-                #os.rename(path, new_path)
 
             # si no existe carpeta de archivos media
             # se guarda una nueva entrada en el reporte sin media
