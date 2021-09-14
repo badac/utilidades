@@ -27,9 +27,9 @@
 
 from __future__ import print_function
 import sys, os, getopt
-import csv
 import datetime
-from shutil import copyfile
+import csv
+import json
 
 #Tabla csv de entrada
 input_table = "MT-CUA.csv"
@@ -40,8 +40,8 @@ fondo = "/Volumes/Marta_Traba/"
 #ruta de la carpeta de archivos, relativa a la unidad documental
 img_dir = "/MEDIA/"
 
-#Nombre de la tabla de entrada, sin la extensión
-input_fname = input_table[:-4]
+#archivo de configuracion
+config_file = "config.json"
 
 #Folder de datos de entrada
 data_dir = "datos/"
@@ -49,8 +49,33 @@ data_dir = "datos/"
 #Folder de reportes
 report_dir = "reportes/"
 
+
+with open(config_file, "r") as c:
+    try:
+        config = json.load(c)
+
+        print("config: " + str(config))
+
+        fondo = config["fondo"]
+        input_table = config["input_table"]
+        id_col = config["id_col"]
+        img_dir = config["img_dir"]
+        data_dir = config["data_dir"]
+        report_dir = config["report_dir"]
+
+    except:
+        print("Error leyendo archivo de configuración")
+        exit()
+
+
+
+#Nombre de la tabla de entrada, sin la extensión
+input_fname = input_table[:-4]
+
+
+
 #Ruta a la tabla
-input_path = "datos/" + input_table
+input_path = data_dir + input_table
 
 d = datetime.datetime.now()
 timestamp = d.strftime("%Y-%m-%dT%H%M%S")

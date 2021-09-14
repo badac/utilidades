@@ -1,0 +1,8 @@
+{
+  "fondo": "/Volumes/Marta_Traba/",
+  "input_table": "MT-CUA.csv",
+  "id_col": 1,
+  "img_dir": "/MEDIA/",
+  "data_dir": "datos/",
+  "report_dir": "reportes/"
+}
