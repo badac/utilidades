@@ -32,7 +32,7 @@ import datetime
 from shutil import copyfile
 
 #Tabla csv de entrada
-input_table = "MT_PRE.csv"
+input_table = "MT-CUA.csv"
 
 #ruta a la carpeta del fondo.
 fondo = "/Volumes/Marta_Traba/"
@@ -117,8 +117,8 @@ with open(input_path, 'r') as csvfile, open(missing_report_table, 'w') as missin
         #para escanear la carpeta con las imágenes
         path_img = fondo + path_part + img_dir
 
-        print(f"ruta documento: {path}")
-        print(f"ruta media: {path_img}")
+        print("ruta documento: " + str(path))
+        print("ruta media: " + str(path_img))
 
         #Se verifica la existencia de la carpeta de la unidad documental
         #y de la carpeta de archivos
@@ -133,7 +133,7 @@ with open(input_path, 'r') as csvfile, open(missing_report_table, 'w') as missin
             if(os.path.exists(path_img) and os.listdir(path_img)):
                 #lista de archivos
                 files = os.listdir(path_img)
-                print( f"Archivos en carpeta media{files}")
+                print( "Archivos en carpeta media: " + ",".join(files))
 
                 #remover archivos basura de osx
                 try:
@@ -164,7 +164,7 @@ with open(input_path, 'r') as csvfile, open(missing_report_table, 'w') as missin
             else:
                 nomedia_row = [id, path, document_contents]
                 nomedia_reportwriter.writerow(nomedia_row)
-                print(f"No se encontro imagen media: {path}")
+                print("No se encontro imagen media: " + path)
 
         #si no existe la(s) ruta(s)
         else:
@@ -173,4 +173,4 @@ with open(input_path, 'r') as csvfile, open(missing_report_table, 'w') as missin
             missing_reportwriter.writerow(missing_report_row)
 
 #Se imprime la cantidad de encontradas
-print(f"encontradas: {count}")
+print("encontradas: " + str(count))
