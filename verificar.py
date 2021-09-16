@@ -49,7 +49,6 @@ data_dir = "datos/"
 #Folder de reportes
 report_dir = "reportes/"
 
-
 with open(config_file, "r") as c:
     try:
         config = json.load(c)
@@ -150,9 +149,7 @@ with open(input_path, 'r') as csvfile, open(missing_report_table, 'w') as missin
         #if(os.path.exists(path) and os.path.exists(path_img)):
         if(os.path.exists(path)):
             print("Existe la ruta")
-            #escribir nueva entrada en el reporte de encontradas
-            found_report_row = [id, path]
-            found_reportwriter.writerow(found_report_row)
+
             document_contents = os.listdir(path)
             #Si existe la carpeta de archivos y contiene archivos
             if(os.path.exists(path_img) and os.listdir(path_img)):
@@ -176,8 +173,9 @@ with open(input_path, 'r') as csvfile, open(missing_report_table, 'w') as missin
                 #se crea la nueva fila, con rutas
                 new_row = [id, path, filenames]
                 print(new_row)
-                #se escribe la nueva fila en la tabla de salida
-                found_reportwriter.writerow(new_row)
+                #escribir nueva entrada en el reporte de encontradas
+                found_report_row = [id, path]
+                found_reportwriter.writerow(found_report_row)
                 count = count + 1
 
             # si no existe carpeta de archivos media
