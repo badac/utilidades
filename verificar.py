@@ -49,6 +49,14 @@ data_dir = "datos/"
 #Folder de reportes
 report_dir = "reportes/"
 
+# Número de la columna de ID o Código.
+# Comenzando a contar desde cero.
+
+id_col = 1
+
+
+redundante = True
+
 with open(config_file, "r") as c:
     try:
         config = json.load(c)
@@ -61,6 +69,7 @@ with open(config_file, "r") as c:
         img_dir = config["img_dir"]
         data_dir = config["data_dir"]
         report_dir = config["report_dir"]
+        redundante = config["redundante"]
 
     except:
         print("Error leyendo archivo de configuración")
@@ -87,10 +96,7 @@ nomedia_report_table = report_dir + "sin-media_" + input_fname + "_"  + timestam
 #un simple contador para los items encontrados
 count = 0
 
-# Número de la columna de ID o Código.
-# Comenzando a contar desde cero.
 
-id_col = 1
 
 #Iteración sobre la tabla de entrada.
 with open(input_path, 'r') as csvfile, open(missing_report_table, 'w') as missing_report_file, open(found_report_table, 'w') as found_report_file, open(nomedia_report_table, 'w') as nomedia_report_file:
@@ -128,18 +134,18 @@ with open(input_path, 'r') as csvfile, open(missing_report_table, 'w') as missin
         print(id)
 
         parts = id.split('_')
-
-        directories = ["_".join(parts[:index + 1]) for index in range(len(parts))]
-        print(directories)
-
-        path_part = "/".join(directories)
-
+        subpath = ""
+        if(redundante):
+            directories = ["_".join(parts[:index + 1]) for index in range(len(parts))]
+            subpath = "/".join(directories)
+        else:
+            subpath = "/".join(parts)
 
         #para verificar la existencia de la carpeta
-        path = fondo  + path_part
+        path = fondo  + subpath
 
         #para escanear la carpeta con las imágenes
-        path_img = fondo + path_part + img_dir
+        path_img = fondo + subpath + img_dir
 
         print("ruta documento: " + str(path))
         print("ruta media: " + str(path_img))

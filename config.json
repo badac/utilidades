@@ -1,8 +1,9 @@
 {
-  "fondo": "/Volumes/Marta_Traba/",
-  "input_table": "MT-CUA.csv",
+  "fondo": "/Volumes/FONDOS/FONDOS EN PROCESO/Luis Caballero Holguin/",
+  "input_table": "LCH.csv",
   "id_col": 1,
   "img_dir": "/MEDIA/",
   "data_dir": "datos/",
-  "report_dir": "reportes/"
+  "report_dir": "reportes/",
+  "redundante": false
 }
