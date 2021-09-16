@@ -1,9 +1,9 @@
 {
-  "fondo": "/Volumes/FONDOS/FONDOS EN PROCESO/Luis Caballero Holguin/",
-  "input_table": "LCH.csv",
+  "fondo": "/Ruta/carpeta/contenedora/del/fondo",
+  "input_table": "tabla.csv",
   "id_col": 1,
   "img_dir": "/MEDIA/",
   "data_dir": "datos/",
   "report_dir": "reportes/",
-  "redundante": false
+  "redundante": true
 }
