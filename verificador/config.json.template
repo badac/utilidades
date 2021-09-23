@@ -1,7 +1,7 @@
 {
   "fondo": "/Ruta/carpeta/contenedora/del/fondo",
   "input_table": "tabla.csv",
-  "id_col": 1,
+  "id_col": 0,
   "img_dir": "/MEDIA/",
   "data_dir": "datos/",
   "report_dir": "reportes/",
