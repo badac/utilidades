@@ -39,7 +39,7 @@ elif year and month and not day:
     value = d.strftime(format)
 
 elif year and not month and not day:
-    d = datetime.date(year, month, day)
+    d = datetime.date(year, 1, 1)
     format = "%Y"
     value = d.strftime(format)
 
