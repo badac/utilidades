@@ -26,3 +26,9 @@ path = "/".join(["_".join(parts[:index+1]) for index, part in enumerate(parts)])
 
 print(path)
 #Imprime: 'ERV/ERV_M/ERV_M_CA22/ERV_M_CA22_DOC007'
+
+#Verificar si una ruta existe
+#value contiene la ruta a verificar
+#este código retorna un 1 si existe y un 0 si no existe
+import os
+return os.path.exists(value)
