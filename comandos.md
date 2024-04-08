@@ -19,8 +19,8 @@ convert feldroy-512x512-unoptimized.jpg \
 -interlace Plane \
 -gaussian-blur 0.05 \
 -colorspace RGB \
--resize 100x100^ \
-feldroy-512x512-combined.jpg 
+-resize '1920x1920^ \
+original.jpg 
 ```
 
 ## Reescalar y optimizar en lote
@@ -34,7 +34,7 @@ mogrify \
 -interlace Plane \
 -gaussian-blur 0.05 \
 -colorspace RGB \
--resize 1920x1920^ \
+-resize '1920x1920^' \
 -format jpg \
 *.tif
 ```
