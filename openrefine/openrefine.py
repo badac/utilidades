@@ -2,8 +2,12 @@
 ## Código en Python/Jython
 
 ## Quitar espacios en blanco (para códigos)
+# Esto puede ser hecho con Edit cells > Common transforms > Trim leading and trailing whitespace
 
 return value.replace(" ","")
+
+## Reemplazar texto, soportando acentos y caracteres ES
+return value.replace('MMC', 'María Mercedes Carranza'.decode('latin-1'))
 
 ## Concatenar dos columnas ##
 ## Esto también puede ser hecho con "Join Columns"
