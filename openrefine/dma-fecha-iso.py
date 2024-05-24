@@ -4,16 +4,19 @@ import re
 exp = re.compile('\d+')
 
 #Extrae los valores de las celdas con componentes de fecha
-aaaa = cells['aaaa publicacion']['value']
-mm = cells['mm publicacion']['value']
-dd = cells['dd publicacion']['value']
+aaaa = cells['aaaa']['value']
+mm = cells['mm']['value']
+dd = cells['dd']['value']
 
-## Condicionales para filtrar y concatenar los números
+#variable nueva para la fecha
+fecha = ''
+
+## Condicionales para filtrar, formatear y concatenar los números
 if  exp.match(aaaa):
-    value = exp.findall(aaaa)[0]
+    fecha = exp.findall(aaaa)[0]
 if  exp.match(mm):
-    value = value + '-' + exp.findall(mm)[0]
+    fecha = fecha + '-' + exp.findall(mm)[0].zfill(2)
 if  exp.match(dd):
-    value = value + '-' + exp.findall(dd)[0]
+    fecha = fecha + '-' + exp.findall(dd)[0].zfill(2)
 
-return value
+return fecha
